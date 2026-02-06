@@ -23,37 +23,8 @@ The goal of this project is to build a model that predicts future monthly AWS co
 
 ## Results
 
-- Best model: Random Forest Regressor  
-- Achieved strong predictive performance on held-out test data  
-- Identified key drivers of cost spikes such as EC2 on-demand hours, data transfer, and storage growth
-
-## Project Structure
-
-- `notebooks/aws_infrastructure_cost_prediction.ipynb` – main end-to-end notebook  
-- `src/` – (optional) reusable Python modules for data loading, feature engineering, and model training  
-- `models/` – saved model artifacts (kept small; large models stored outside Git)  
-- `reports/` – generated figures or summary reports  
-- `data/` – local data directory (excluded from Git to avoid large files)
-
-## How to Run
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Saisunku1627/AWS-cost-optimization.git
-   cd AWS-cost-optimization
-   ```
-2. (Optional) Create and activate a virtual environment, then install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Open the main notebook:
-   ```bash
-   jupyter notebook notebooks/aws_infrastructure_cost_prediction.ipynb
-   ```
-4. Configure the data path at the top of the notebook and run all cells.
-
-## Tech Stack
-
-- Python, pandas, NumPy, scikit-learn  
-- Jupyter / Google Colab  
-- AWS billing data and cloud cost concepts
+- Best model: **Random Forest Regressor** (200 estimators, 100K training samples)  
+- Achieved **MAE = $28,457** and **RMSE = $75,226** on held-out test set  
+- Model explains **5.7% of cost variance** (R² = 0.057), indicating baseline performance with room for feature engineering improvements  
+- Identified **Normalization Size Factor (59.8%)**, vCPU (15.4%), and Memory (5.7%) as top cost drivers  
+- Analysis revealed **up to 42% regional cost savings** potential by migrating workloads to 
